@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+torchaudio
+
+transformers>=4.42.0
+pillow
+numpy
+matplotlib
+jupyterlab
+nbformat
