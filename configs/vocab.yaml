@@ -1,0 +1,81 @@
+# configs/vocab.yaml
+attr_lexicon_global:
+  color:  [white, blue, black, navy, beige, grey]
+  material: [cotton, denim, linen, polyester]
+  fit:    [slim-fit, regular, oversized]
+  detail: [with collar, with buttons, with chest pocket]
+
+attr_lexicon_per_category:
+  white_dress_shirt:
+    color: [white]
+    material: [cotton, poplin]
+    fit: [slim-fit, regular]
+    detail: [with collar, with buttons]
+  denim_shirt:
+    color: [blue, light blue, dark blue]
+    material: [denim]
+    fit: [regular, oversized]
+    detail: [with chest pocket, with snap buttons]
+  jeans:
+    color: [blue, light blue, dark blue, black]
+    material: [denim]
+    fit: [slim-fit, regular, straight]
+    detail: [with five pockets]
+  white_tshirt:
+    color: [white]
+    material: [cotton]
+    fit: [regular, oversized]
+    detail: [crew neck, round neck]
+  pants:
+    color: [black, navy, beige, grey]
+    material: [cotton, wool, polyester]
+    fit: [slim-fit, regular, tapered]
+    detail: [with belt loops, with side pockets]
+  hat:
+    color: [black, navy, white]
+    material: [cotton, wool]
+    fit: [adjustable]
+    detail: [with curved brim, with strapback]
+
+templates:
+  - "{color} {material} {fit} {category} {detail}"
+  - "{fit} {color} {category}"
+  - "{color} {category}"
+  - "a {color} {category} {detail}"
+  - "a photo of a {color} {category}"
+
+neg_neighbors:
+  white_dress_shirt: [white_tshirt, denim_shirt, hat]
+  denim_shirt: [white_dress_shirt, white_tshirt]
+  jeans: [pants]
+  pants: [jeans]
+  white_tshirt: [white_dress_shirt]
+  hat: [white_tshirt, denim_shirt]
+
+weights:
+  cat: 0.5
+  color: 0.2
+  fit: 0.15
+  detail: 0.15
+  material: 0.0
+
+seed_prompts:
+  white_dress_shirt:
+    - "a photo of a white dress shirt"
+    - "a white button-up shirt"
+    - "a white long-sleeve shirt"
+  hat:
+    - "a photo of a baseball cap"
+    - "a photo of a hat"
+    - "a black cap"
+  denim_shirt:
+    - "a photo of a denim shirt"
+    - "a blue denim shirt"
+  jeans:
+    - "a photo of blue jeans"
+    - "a photo of denim pants"
+  white_tshirt:
+    - "a photo of a white t-shirt"
+    - "a plain white tee"
+  pants:
+    - "a photo of a pants"
