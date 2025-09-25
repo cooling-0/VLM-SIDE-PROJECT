@@ -38,3 +38,15 @@ def make_attribute_phrases(category: str) -> Dict[str, List[str]]:
     # 간단한 기본 카테고리 문장
     phrases["category"] = [f"a photo of a {category.replace('_',' ')}", f"a {category.replace('_',' ')}"]
     return phrases
+
+# import yaml
+# from pathlib import Path
+
+# cfg = yaml.safe_load(Path("configs/vocab.yaml").read_text(encoding="utf-8"))
+
+# ATTR_LEXICON_GLOBAL      = cfg["attr_lexicon_global"]
+# ATTR_LEXICON_PER_CATEGORY= cfg["attr_lexicon_per_category"]
+# TEMPLATES                = cfg["templates"]
+# NEG_NEIGHBORS            = cfg["neg_neighbors"]
+# WEIGHTS_DICT             = cfg.get("weights", {})
+# CATEGORIES               = cfg.get("seed_prompts", {})
